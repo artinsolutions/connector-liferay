@@ -57,6 +57,8 @@ public class LiferayConfiguration extends AbstractConfiguration {
     private Boolean ignoreRemoteExceptionWhenUpdatePassword = false;
 
     private boolean associateOrganizationWithMainSite = false;
+    
+    private boolean readAllAttributes = false;
 
     // global cache
     Map<String, Long> roleCache = new HashMap<String, Long>();
@@ -262,6 +264,16 @@ public class LiferayConfiguration extends AbstractConfiguration {
         this.associateOrganizationWithMainSite = associateOrganizationWithMainSite;
     }
 
+    @ConfigurationProperty(displayMessageKey = "liferay.config.readAllAttributes",
+            helpMessageKey = "liferay.config.readAllAttributes.help")
+    public boolean getReadAllAttributes() {
+        return readAllAttributes;
+    }
+
+    public void setReadAllAttributes(boolean readAllAttributes) {
+        this.readAllAttributes = readAllAttributes;
+    }
+    
     public void setCustomFields(String[] customFields) {
         this.customFields = customFields;
     }

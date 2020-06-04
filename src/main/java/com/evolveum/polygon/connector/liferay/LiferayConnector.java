@@ -964,7 +964,12 @@ public class LiferayConnector implements PoolableConnector, TestOp, SchemaOp, Cr
     }
 
     private boolean contactsToGet(OperationOptions options) {
-        if (options == null) {
+        if (configuration.getReadAllAttributes()) {
+            // get all data
+            return true;
+        }
+    	
+    	if (options == null) {
             // not configured, get all data
             return true;
         }
@@ -989,7 +994,12 @@ public class LiferayConnector implements PoolableConnector, TestOp, SchemaOp, Cr
     }
 
     private boolean attrToGet(OperationOptions options, String attribute) {
-        if (options == null) {
+        if (configuration.getReadAllAttributes()) {
+            // get all data
+            return true;
+        }
+
+    	if (options == null) {
             // not configured, get all data
             return true;
         }
